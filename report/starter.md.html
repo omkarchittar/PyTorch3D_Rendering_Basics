@@ -1,0 +1,136 @@
+                    <meta charset="utf-8" emacsmode="-*- markdown -*">
+                            **CMSC848F - Assignment 1: Rendering Basics with PyTorch3D**
+
+Name: Omkar Chittar 
+
+UID: 119193556
+
+## **Rendering your first mesh**
+
+![](cow_render.jpg)
+
+Practicing with Cameras 
+===============================================================================
+
+360-degree Renders
+-------------------------------------------------------------------------------
+![](360_cow_render.gif)
+
+Re-creating the Dolly Zoom
+-------------------------------------------------------------------------------
+![](dolly_zoom.gif)
+
+Practicing with Meshes
+===============================================================================
+
+Constructing a Tetrahedron
+-------------------------------------------------------------------------------
+![](360_tetrahedron_render.gif)
+
+number of vertices = 4. 
+
+vertices = {[sqrt(8/9),0,-1/3], [-sqrt(2/9),sqrt(2/3),-1/3], [-sqrt(2/9),  -sqrt(2/3),-1/3], [0,0,1]}. 
+
+number of triangular faces = 4. 
+
+faces = {[3, 0, 2], [3, 1, 0], [3, 2, 1], [0, 1, 2]}. 
+
+Constructing a Cube
+-------------------------------------------------------------------------------
+![](360_cube_render.gif)
+
+number of vertices = 8. 
+
+vertices =  {[-0.5, -0.5, 0.5], [0.5, -0.5, 0.5], [0.5,  -0.5, -0.5], [-0.5, -0.5, -0.5],
+            [-0.5,  0.5, 0.5], [0.5,  0.5, 0.5], [0.5,   0.5, -0.5], [-0.5,  0.5, -0.5]}. 
+
+number of triangular faces = 16. 
+
+faces = {[0, 4, 1], [1, 4, 5], [1, 5, 2], [2, 5, 6], [2, 6, 3], [3, 6, 7], 
+        [7, 0, 3], [7, 4, 0],[4, 6, 5], [4, 7, 6], [0, 1, 2], [0, 2, 3]}. 
+
+Re-texturing a mesh
+===============================================================================
+![](gradient_cow_render.gif)
+
+color1 = [1, 0, 1]
+
+color2 = [1, 1, 0]
+
+Camera Transformations
+===============================================================================
+R_relative: Changes the orientation wrt previous orientation.
+
+T_relative: Change in position wrt previous position.  
+
+*Assumptions:* 
+
+        Red: X-axis
+
+        Green: Y-axis
+
+        Blue: Z-axis
+
+Relative rotation of +90 deg about z axis only
+-------------------------------------------------------------------------------
+![](transform1.jpg)
+
+R_relative=[[0, -1, 0], [1, 0, 0], [0, 0, 1]]
+
+T_relative=[0, 0, 0]
+
+Relative translation about +z axis only
+-------------------------------------------------------------------------------
+![](transform2.jpg)
+
+R_relative=[[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+
+T_relative=[0, 0, 3]
+
+Relative translation about +x and -y axis 
+-------------------------------------------------------------------------------
+![](transform3.jpg)
+
+R_relative=[[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+
+T_relative=[0.5, -0.5, 0]
+
+Relative rotation of -90 deg about y axis and Relative translation about +x, and +z axis
+-------------------------------------------------------------------------------
+![](transform4.jpg)
+
+R_relative=[[0, 0, -1], [0, 1, 0], [1, 0, 0]]
+
+T_relative=[3, 0, 3]
+
+Rendering Generic 3D Representations
+===============================================================================
+
+Rendering Point Clouds from RGB-D Images
+-------------------------------------------------------------------------------
+![The point cloud corresponding to the first image](360_pointcloud_plant1.gif width="200px") ![The point cloud corresponding to the second image](360_pointcloud_plant2.gif width="200px") ![The point cloud formed by the union of the first 2 point clouds](360_pointcloud_plant3.gif width="200px")
+
+Parametric Functions
+-------------------------------------------------------------------------------
+![Number of samples = 100](parametric_torus_100.gif width="200px")![Number of samples = 1000](parametric_torus_1000.gif width="200px")
+
+Implicit Surfaces
+-------------------------------------------------------------------------------
+![](implicit_torus.gif)
+
+Trade-offs between rendering as a mesh vs a point cloud
+===============================================================================
+
+
+    Features     |  	Point Cloud             |       Mesh 
+-----------------|------------------------------|-------------------------------
+Rendering Speed  |Rendering speed is high as only vertices are rendered |Low Rendering speed as vertices as well as faces are rendered
+Rendering quality|Lower Rendering Quality of  point cloud for same number of vertices.  |High rendering Quality as meshes are represented as continuous surfaces.
+Ease of use	 |Easy to use as it has only surface vertices and their respective normals & colors. |Connectivity, intersecting surfaces etc. make meshes difficult to use for complicated surfaces.
+Memory Usage	 |Low memory consumption.       |High memory consumption.
+
+
+
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
+
