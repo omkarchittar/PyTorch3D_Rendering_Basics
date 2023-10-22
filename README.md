@@ -1,10 +1,10 @@
-CMSC848F - Assignment 1: Rendering Basics with PyTorch3D
+Rendering Basics with PyTorch3D
 ========================
 **Name: Omkar Chittar**  
 **UID - 119193556**
 ------------------------
 ```text
-ochittar_assignment1
+PyTorch3D_Rendering_Basics
 +-data
 +-images
 +-README.md
