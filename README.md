@@ -1,7 +1,6 @@
 Rendering Basics with PyTorch3D
 ========================
 **Name: Omkar Chittar**  
-**UID - 119193556**
 ------------------------
 ```text
 PyTorch3D_Rendering_Basics
@@ -24,7 +23,7 @@ PyTorch3D_Rendering_Basics
 - Scripts for all the questions are present in the **starter** folder.
 
 ## **0.1 Rendering your first mesh**
-Make sure you are in the 119193556_assignment1 directory.  
+Make sure you are in the PyTorch3D_Rendering_Basics directory.  
 Run the code:  
    ```
  python -m starter.render_mesh --image_size 256 --output_path images/cow_render.jpg
